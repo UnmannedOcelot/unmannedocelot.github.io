@@ -53,8 +53,7 @@ header {
 
 .breadcrumbs {
     width: max-content;
-    margin-left: 10%;
-    margin-bottom: 15px;
+    margin: 0 0 15px 10%;
     color: black;
     font-family: 'Montserrat', sans-serif;
 }
@@ -72,6 +71,7 @@ header {
 
 /* Main Body */
 main {
+    min-height: 100%;
     width: max-content;
     max-width: 55%;
     min-width: 35%;
