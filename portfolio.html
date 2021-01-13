@@ -26,30 +26,38 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="nav-main">
             <a href="index.html">Home</a>
             <a class="active" href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
+            <a class="nav-contact" href="mailto:mannycommission@gmail.com">Contact Me</a>
         </nav> 
     </header>
 
     <main>
         <br><br><br>
+        <nav class="breadcrumbs">
+            <div class="trail-begin">
+                <a href="index.html">Home</a>
+            </div>
+            <div class="bc-sep">»</div>
+            <div>Portfolio</div>
+        </nav>
         <!--
         <h1>Portfolio</h1>
         <hr>
         -->
-        <h1 class="section-header">Portfolio</h1>
+        <!--<h1 class="section-header">Portfolio</h1>-->
         <br>
         <!--<ul id="filter-checkbox">
             <li><input type="checkbox" id="cboxTitles" name="titles" value="titles" onclick="onTitleCheckbox(this)"><label for="titles">Titles</label></li>
         </ul>
         <br>-->
-        <ul id="gallery-container"><p id="gallery-filler-text">Images not loaded</p></ul>
+        <ul id="gallery-container"><p id="gallery-filler-text">If images do not load, ensure JavaScript is enabled.</p></ul>
         <div id="gallery-modal"> <!-- onclick="hideModal()"-->
             <div id="modal-close" onclick="hideModal()"></div>
+            <img id="modal-close-btn" src="img/close2.png">
             <a id="modal-img-wrapper" target="_blank">
-                <img id="modal-close-btn" src="img/close2.png">
                 <img id="modal-img" src="">
                 <p id="modal-img-details"></p>
                 <a id="modal-arrow-left" class="modal-arrow" onclick="scrollImage(-1)"><img src="img/arrow.png" class="rotate180"></a> 
@@ -94,7 +102,8 @@
             }
 
             // Send Request
-            xhttp.open("GET", "https://api.imgur.com/3/album/Jx74Qgk/images", true);
+            // Jx74Qgk
+            xhttp.open("GET", "https://api.imgur.com/3/album/uKLVhPX/images", true);
             xhttp.setRequestHeader('Authorization', 'Client-ID fcc776618a6eee5');
             xhttp.send();
 
