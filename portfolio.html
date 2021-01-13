@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+    Set URL to correct #ID
+-->
+
+<html>
+<head>
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-gallery.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: aliceblue;
+        }
+        main {
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a class="active" href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+        </nav> 
+    </header>
+
+    <main>
+        <br><br><br>
+        <!--
+        <h1>Portfolio</h1>
+        <hr>
+        -->
+        <h1 class="section-header">Portfolio</h1>
+        <br>
+        <!--<ul id="filter-checkbox">
+            <li><input type="checkbox" id="cboxTitles" name="titles" value="titles" onclick="onTitleCheckbox(this)"><label for="titles">Titles</label></li>
+        </ul>
+        <br>-->
+        <ul id="gallery-container"><p id="gallery-filler-text">Images not loaded</p></ul>
+        <div id="gallery-modal"> <!-- onclick="hideModal()"-->
+            <div id="modal-close" onclick="hideModal()"></div>
+            <a id="modal-img-wrapper" target="_blank">
+                <img id="modal-close-btn" src="img/close2.png">
+                <img id="modal-img" src="">
+                <p id="modal-img-details"></p>
+                <a id="modal-arrow-left" class="modal-arrow" onclick="scrollImage(-1)"><img src="img/arrow.png" class="rotate180"></a> 
+                <a id="modal-arrow-right" class="modal-arrow" onclick="scrollImage(1)"><img src="img/arrow.png"></a>
+            </a>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+            // Vars
+            var xhttp = new XMLHttpRequest();
+            var response_json;
+            var links = new Array;
+            var desc = new Array;
+
+            var url = new URL(window.location.href);
+            var url_params = url.searchParams;//= new URLSearchParams(url);
+            var url_new;
+
+            var modal_active = false;
+            var modal_index = 0;
+            if(url_params.has("id")) { modal_index=url_params.get("id"); }
+
+            var titles_on = false;
+            
+            // Imgur Response Handler
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(xhttp.responseText); // DEBUG
+                    response_json = JSON.parse(xhttp.responseText);
+                    //response_json = response_json["data"]; // DEBUG
+                    for (x in response_json["data"]) {
+                        links.push(response_json["data"][x]["link"]);
+                        desc.push(response_json["data"][x]["description"]);
+                        //console.log(response_json["data"][x]["description"]);
+                    }
+
+                    //console.log(desc); // DEBUG
+                    document.getElementById("gallery-filler-text").style.display = "none";
+                    populateGallery();
+                }
+            }
+
+            // Send Request
+            xhttp.open("GET", "https://api.imgur.com/3/album/Jx74Qgk/images", true);
+            xhttp.setRequestHeader('Authorization', 'Client-ID fcc776618a6eee5');
+            xhttp.send();
+
+            function populateGallery() {
+                var div = document.getElementById("gallery-container");
+                for (x in links) {
+                    div.innerHTML += '<img class="gallery-img" id="' + x + '"onclick="openModal(\'id\', this.id, this)" title="' + desc[x] + '" src="' + links[x] + '">' //'<div class="gallery-img"><img id="' + x + '"onclick="openModal(\'id\', this.id, this)" title="' + desc[x] + '" src="' + links[x] + '"><p class="gallery-title">' + desc[x] + '</p></div>'
+                }
+                if(url_params.has("id")) { initializeModal(); }
+            }
+            function showImage(img){
+                // Set URLs
+                document.getElementById("modal-img").src = img.src;
+                document.getElementById("modal-img-wrapper").href = img.src;
+                // Set Description
+                if(img.title == "null") {
+                    document.getElementById("modal-img-details").style.display = "none";
+                }
+                else {
+                    document.getElementById("modal-img-details").innerText = img.title;
+                }
+
+                modal_index = img.id;
+                showModal();
+            }
+            // Modal
+            function openModal(key, value, img) {
+                setURLParams(key, value);
+                showImage(img);
+            }
+            function showModal(){
+                document.getElementById("gallery-modal").style.display = "block";
+                modal_active = true;
+            }
+            function hideModal(){
+                document.getElementById("gallery-modal").style.display = "none";
+                modal_active = false;
+                clearURLParams();
+            }
+            function setURLParams(key, value) {
+                url = new URL(window.location.href);
+                url_params = url.searchParams;
+                url_params.set(key, value);
+                //url.search = url_params.toString();
+                //url_new = url.toString();
+                //window.location.href = url_new;
+                //console.log(url_params.toString());
+                window.history.pushState({page: 1}, '', '?'+url_params.toString());
+            }
+            function clearURLParams() {
+                url = new URL(window.location.href.split('?')[0]);
+                //url_new = url.toString();
+                //window.location.href = url_new;
+                window.history.pushState({page: 1}, '', url.toString());
+            }
+            function scrollImage(value) {
+                url = new URL(window.location.href);
+                url_params = url.searchParams;
+
+                // Validation
+                var id = url_params.get("id");
+                if(modal_index >= links.length-1 && value == 1) { modal_index = 0;console.log("1"); }
+                else if(modal_index <= 0 && value == -1) { modal_index = links.length-1;console.log("2"); }
+                else { modal_index = parseInt(modal_index)+value;console.log("3"); }
+                //console.log(modal_index);
+                
+                // openModal('id', modal_index);
+                
+                url_params.set("id", modal_index);
+                //url.search = url_params.toString();
+                //url_new = url.toString();
+                //window.location.href = url_new;
+                window.history.pushState({page: 1}, '', '?'+url_params.toString());
+                showImage(document.getElementById(modal_index));
+
+            }
+            function initializeModal() {
+                url = new URL(window.location.href);
+                url_params = url.searchParams;
+
+                if(url_params.has("id")) {
+                    showImage(document.getElementById(url_params.get("id")));
+                }
+            }
+            // Set titles_on
+            // Update img divs with titles
+            //function onTitleCheckbox(box) {
+            //    if(box.checked) {
+            //        titles_on = true;
+            //    }
+            //    else {
+            //        titles_on = false;
+            //    }
+            //}
+            //function enableTitles() {
+
+            //}
+
+            // Keypress
+            document.onkeydown = function(e) {
+                if(!modal_active) { return; }
+                switch (e.keyCode) {
+                    case 37:
+                        scrollImage(-1);
+                        break;
+                    case 39:
+                        scrollImage(1);
+                        break;
+                }
+            }
+        </script>
+    </main>
+
+    <footer>
+        <div>
+            <a href="#Top">Top</a>
+            <a href="index.html">Home</a>
+            <a href="mailto:mannycommission@gmail.com">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>

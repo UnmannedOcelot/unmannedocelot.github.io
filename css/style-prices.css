@@ -1,0 +1,28 @@
+/* Price Table */
+#price-table {
+    margin: 1%;
+    width: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+#price-table th,
+#price-table td {
+    padding: 1%;
+}
+#price-table img,
+#price-table p {
+    display: inline;
+}
+#price-table th {
+    width: 45%;
+}
+#price-table img {
+    float: left;
+    width: 100%;
+}
+.price-header {
+    font-size: 1.4em;
+    font-family: 'Raleway', sans-serif;
+}
+.price-cost {
+    width: 12%;
+}

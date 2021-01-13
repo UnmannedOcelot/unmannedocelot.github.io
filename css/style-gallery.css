@@ -1,0 +1,141 @@
+/* Portfolio Images */
+.gallery-containter {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-img {
+    margin: 5px;
+    vertical-align: top;
+    max-width: 24%;
+    cursor: zoom-in;
+    border: 1px solid lightgrey;
+    padding: 4px;
+}
+
+/* Image Modal */
+#gallery-modal {
+    display: none;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(92, 92, 92, 0.541);
+    /* filter: blur(.8px); */
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+#gallery-filler-text {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Modal */
+#modal-img-wrapper {
+    z-index: 2;
+    position: relative;
+    max-height: 75%;
+    max-width: 45%;
+    margin: 2% auto;
+    animation: zoom-in .3s ease forwards;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: 'Raleway', sans-serif;
+}
+#modal-img-wrapper:active, #modal-img-wrapper:active:visited {
+    color: white;
+    text-decoration: none;
+}
+#modal-img {
+    max-height: inherit;
+    margin: 5% auto 0 auto;
+    padding: 5px;
+    background-color: #f1f1f1;
+    /* border: 1px solid white; */
+    border-radius: 5px;
+}
+#modal-img-details {
+    position: absolute;
+    width: 98%;
+    padding: 2% 0;
+    background-color: rgba(46, 46, 46, 0.85);
+    top: 0;
+    left: 1%;
+    margin: 2.8% auto;
+    text-align: center;
+    border-radius: 0 0 5px 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Modal Navigation */
+#modal-close {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 15%;
+    margin: auto;
+    width: 70%;
+    height: 100%;
+    cursor: zoom-out;
+}
+#modal-close-btn {
+    width: 4.5%;
+    position: fixed;
+    top: 1%;
+    right: 25%;
+    
+}
+.modal-arrow {
+    z-index: 1;
+    position: fixed;
+    padding-top: 25%;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    cursor: pointer;
+}
+.modal-arrow img {
+    position: fixed;
+    width:6%;
+    top: 50%;
+}
+#modal-arrow-left img {
+    left: 0;
+    margin-left: 2%;
+}
+#modal-arrow-right img {
+    right: 0;
+    margin-right: 2%;
+}
+#modal-arrow-left {
+    left: 0;
+}
+#modal-arrow-right {
+    right: 0;
+}
+#modal-arrow-left:hover {
+    animation: appear-left 0s linear forwards;
+}
+#modal-arrow-right:hover {
+    animation: appear-right 0s linear forwards;
+}
+
+/* Animations */
+@keyframes zoom-in {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+@keyframes appear-left {
+    from {background-image: none;}
+    to {background-image: linear-gradient(to right, rgb(73, 73, 73), rgba(255, 255, 255, 0));}
+}
+@keyframes appear-right {
+    from {background-image: none;}
+    to {background-image: linear-gradient(to left, rgb(73, 73, 73), rgba(255, 255, 255, 0));}
+}
