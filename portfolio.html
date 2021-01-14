@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Portfolio</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-gallery.css">
@@ -13,16 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: aliceblue;
-        }
-        main {
-            max-width: 80%;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -35,7 +26,7 @@
         </nav> 
     </header>
 
-    <main>
+    <main style="max-width: 80%;">
         <br><br><br><br>
         <nav class="breadcrumbs">
             <div class="trail-begin">
@@ -44,20 +35,12 @@
             <div class="bc-sep">»</div>
             <div>Portfolio</div>
         </nav>
-        <!--
-        <h1>Portfolio</h1>
-        <hr>
-        -->
-        <!--<h1 class="section-header">Portfolio</h1>-->
         <br>
-        <!--<ul id="filter-checkbox">
-            <li><input type="checkbox" id="cboxTitles" name="titles" value="titles" onclick="onTitleCheckbox(this)"><label for="titles">Titles</label></li>
-        </ul>
-        <br>-->
+        
         <ul id="gallery-container"><p id="gallery-filler-text">If images do not load, ensure JavaScript is enabled.</p></ul>
-        <div id="gallery-modal"> <!-- onclick="hideModal()"-->
+        <div id="gallery-modal">
             <div id="modal-close" onclick="hideModal()"></div>
-            <img id="modal-close-btn" src="img/close2.png">
+            <!--<img id="modal-close-btn" src="img/close2.png">-->
             <a id="modal-img-wrapper" target="_blank">
                 <img id="modal-img" src="">
                 <p id="modal-img-details"></p>
@@ -75,7 +58,7 @@
             var desc = new Array;
 
             var url = new URL(window.location.href);
-            var url_params = url.searchParams;//= new URLSearchParams(url);
+            var url_params = url.searchParams;
             var url_new;
 
             var modal_active = false;
@@ -87,16 +70,11 @@
             // Imgur Response Handler
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    //console.log(xhttp.responseText); // DEBUG
                     response_json = JSON.parse(xhttp.responseText);
-                    //response_json = response_json["data"]; // DEBUG
                     for (x in response_json["data"]) {
                         links.push(response_json["data"][x]["link"]);
                         desc.push(response_json["data"][x]["description"]);
-                        //console.log(response_json["data"][x]["description"]);
                     }
-
-                    //console.log(desc); // DEBUG
                     document.getElementById("gallery-filler-text").style.display = "none";
                     populateGallery();
                 }
@@ -120,12 +98,8 @@
                 document.getElementById("modal-img").src = img.src;
                 document.getElementById("modal-img-wrapper").href = img.src;
                 // Set Description
-                if(img.title == "null") {
-                    document.getElementById("modal-img-details").style.display = "none";
-                }
-                else {
-                    document.getElementById("modal-img-details").innerText = img.title;
-                }
+                if(img.title == "null") { document.getElementById("modal-img-details").style.display = "none"; }
+                else { document.getElementById("modal-img-details").innerText = img.title; }
 
                 modal_index = img.id;
                 showModal();
@@ -148,16 +122,10 @@
                 url = new URL(window.location.href);
                 url_params = url.searchParams;
                 url_params.set(key, value);
-                //url.search = url_params.toString();
-                //url_new = url.toString();
-                //window.location.href = url_new;
-                //console.log(url_params.toString());
                 window.history.pushState({page: 1}, '', '?'+url_params.toString());
             }
             function clearURLParams() {
                 url = new URL(window.location.href.split('?')[0]);
-                //url_new = url.toString();
-                //window.location.href = url_new;
                 window.history.pushState({page: 1}, '', url.toString());
             }
             function scrollImage(value) {
@@ -169,14 +137,8 @@
                 if(modal_index >= links.length-1 && value == 1) { modal_index = 0;console.log("1"); }
                 else if(modal_index <= 0 && value == -1) { modal_index = links.length-1;console.log("2"); }
                 else { modal_index = parseInt(modal_index)+value;console.log("3"); }
-                //console.log(modal_index);
-                
-                // openModal('id', modal_index);
                 
                 url_params.set("id", modal_index);
-                //url.search = url_params.toString();
-                //url_new = url.toString();
-                //window.location.href = url_new;
                 window.history.pushState({page: 1}, '', '?'+url_params.toString());
                 showImage(document.getElementById(modal_index));
 
@@ -189,19 +151,6 @@
                     showImage(document.getElementById(url_params.get("id")));
                 }
             }
-            // Set titles_on
-            // Update img divs with titles
-            //function onTitleCheckbox(box) {
-            //    if(box.checked) {
-            //        titles_on = true;
-            //    }
-            //    else {
-            //        titles_on = false;
-            //    }
-            //}
-            //function enableTitles() {
-
-            //}
 
             // Keypress
             document.onkeydown = function(e) {

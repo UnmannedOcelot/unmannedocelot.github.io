@@ -6,6 +6,9 @@ html, body {
 }
 body {
     height: 95.7vh;
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
 }
 
 /* Nav */
@@ -48,13 +51,6 @@ header {
     right: 0;
     margin: auto;
     padding: 16px !important;
-}
-.nav-contact-dc {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 1% 5px;
-    background-color: lightgreen;
 }
 
 .breadcrumbs {
