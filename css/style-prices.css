@@ -48,11 +48,12 @@
 }
 
 .price-container {
+    margin-top: 25px;
     font-family: 'Barlow', sans-serif;
 }
 .price-item {
     max-width: 95%;
-    margin: 75px 12.5%;
+    margin: 0 12.5% 75px 12.5%;
 }
 .price-item img {
     width: 70%;
@@ -67,6 +68,30 @@
     padding: 4px;
     border: 1px solid #333;
     border-bottom: 0;
+}
+.price-summary {
+    margin-left: 15%;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.1em;
+}
+
+#textsimple::before,
+#textreal::before,
+#logo::before,
+#wallpaper::before,
+#wallconnectors::before,
+#frames::before {
+    display: block; 
+    content: " "; 
+    margin-top: -65px; 
+    height: 65px; 
+    visibility: hidden; 
+    pointer-events: none;
+}
+
+.sum-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
 }
 
 .img {
