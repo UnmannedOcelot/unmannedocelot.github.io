@@ -13,7 +13,7 @@
     margin: 5px auto;
     padding: 20px 0;
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgb(208, 245, 247), rgba(255, 255, 255, 0));
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(208, 245, 247), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(78, 160, 255), rgba(255, 255, 255, 0));
     color: black;
 }
 .list-links li:hover {
