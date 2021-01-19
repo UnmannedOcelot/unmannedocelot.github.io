@@ -3,9 +3,11 @@ main {
 }
 
 /* Portfolio Images */
-.gallery-containter {
-    display: inline-flex;
+#gallery-container {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
 }
 .gallery-img {
     margin: 5px;
@@ -158,6 +160,6 @@ main {
 }
 @media only screen and (max-width: 600px) {
     .gallery-img {
-        max-width: 40%;
+        max-width: 45%;
     }
 }
