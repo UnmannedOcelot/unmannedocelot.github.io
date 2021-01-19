@@ -93,6 +93,7 @@
     background-color: rgba(7, 7, 7, 0.541);
     text-align: center;
     cursor: zoom-out;
+    margin: 15%;
 }
 #modal-img-wrapper {
     z-index: 2;

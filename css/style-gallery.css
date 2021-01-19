@@ -4,9 +4,8 @@ main {
 
 /* Portfolio Images */
 .gallery-containter {
-    flex-wrap: wrap;
-    display: flex;
-    width: max-content;
+    display: inline-flex;
+    justify-content: center;
 }
 .gallery-img {
     margin: 5px;
@@ -88,7 +87,6 @@ main {
     position: fixed;
     top: 1%;
     right: 25%;
-    
 }
 .modal-arrow {
     z-index: 1;
@@ -150,5 +148,16 @@ main {
     }
     .modal-arrow img {
         top: 75%;
+    }
+    .gallery-containter {
+        max-width: 100%;
+    }
+    .gallery-img {
+        max-width: 48%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .gallery-img {
+        max-width: 40%;
     }
 }
