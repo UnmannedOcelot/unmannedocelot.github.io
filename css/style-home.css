@@ -12,13 +12,13 @@
     width: 100%;
     margin: 5px auto;
     padding: 20px 0;
-    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #DDD, #DDD, rgba(255, 255, 255, 0));
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #DDD, #DDD, rgba(255, 255, 255, 0));
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgb(208, 245, 247), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(208, 245, 247), rgba(255, 255, 255, 0));
     color: black;
 }
 .list-links li:hover {
-    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgb(177, 177, 177), rgb(177, 177, 177), rgba(255, 255, 255, 0));
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(177, 177, 177), rgb(177, 177, 177), rgba(255, 255, 255, 0));
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgb(206, 218, 218), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(206, 218, 218), rgba(255, 255, 255, 0));
 }
 .list-links a,
 .list-links a:active,
