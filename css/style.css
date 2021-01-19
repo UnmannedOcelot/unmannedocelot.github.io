@@ -44,7 +44,7 @@ header {
     margin: 0 auto;
 }
 .nav-main a {
-    padding: 20px;
+    padding: 100% 2%;
     color: #f2f2f2;
     text-align: center;
     text-decoration: none;
@@ -135,4 +135,18 @@ h1 {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+
+/* Mobile */
+@media only screen and (max-width: 750px) {
+    main {
+        max-width: 100%;
+        width: 100%;
+    }
+    .nav-main {
+        width: 100%;
+    }
+    .nav-contact {
+        top: 55px;
+    }
 }

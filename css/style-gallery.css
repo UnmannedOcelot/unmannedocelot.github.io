@@ -1,11 +1,12 @@
+main {
+    max-width: 80%;
+}
+
 /* Portfolio Images */
 .gallery-containter {
     flex-wrap: wrap;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: min-content;
-    margin: 200px;
+    width: max-content;
 }
 .gallery-img {
     margin: 5px;
@@ -40,8 +41,7 @@
     z-index: 2;
     left: 0;
     position: relative;
-    max-height: 75%;
-    max-width: 5%;
+    max-width: 50%;
     margin: 2% auto;
     animation: zoom-in .3s ease forwards;
     color: white;
@@ -54,7 +54,7 @@
     text-decoration: none;
 }
 #modal-img {
-    max-height: inherit;
+    max-width: inherit;
     margin: 5% auto 0 auto;
     padding: 5px;
     background-color: #f1f1f1;
@@ -67,7 +67,6 @@
     background-color: rgba(46, 46, 46, 0.85);
     top: 0;
     left: 1%;
-    margin: 2.8% auto;
     text-align: center;
     border-radius: 0 0 5px 5px;
     font-family: 'Montserrat', sans-serif;
@@ -134,9 +133,22 @@
 }
 @keyframes appear-left {
     from {background-image: none;}
-    to {background-image: linear-gradient(to right, rgb(20, 20, 20), rgba(255, 255, 255, 0));}
+    to {background-image: linear-gradient(to right, rgb(27, 27, 27), rgba(255, 255, 255, 0));}
 }
 @keyframes appear-right {
     from {background-image: none;}
-    to {background-image: linear-gradient(to left, rgb(20, 20, 20), rgba(255, 255, 255, 0));}
+    to {background-image: linear-gradient(to left,rgb(27, 27, 27), rgba(255, 255, 255, 0));}
+}
+
+/* Mobile */
+@media only screen and (max-width: 750px) {
+    main {
+        max-width: 100%;
+    }
+    #modal-img-wrapper {
+        max-width: 100%;
+    }
+    .modal-arrow img {
+        top: 75%;
+    }
 }

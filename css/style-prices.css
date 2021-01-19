@@ -98,12 +98,12 @@
     z-index: 2;
     left: 0;
     position: relative;
-    max-height: 70%;
+    max-width: 70%;
     margin: 2% auto;
     animation: zoom-in .3s ease forwards;
 }
 #modal-img {
-    max-height: inherit;
+    max-width: inherit;
     margin: 5% auto 0 auto;
     padding: 5px;
     background-color: #f1f1f1;
@@ -135,7 +135,14 @@
     pointer-events: none;
 }
 
-/* MIsc */
+/* Misc */
 .img {
     cursor: zoom-in;
+}
+
+/* Mobile */
+@media only screen and (max-width: 750px) {
+    #modal-img-wrapper {
+        max-width: 100%;
+    }
 }
