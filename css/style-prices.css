@@ -20,6 +20,8 @@
     width: 100%;
 }
 .price-header {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     margin-bottom: 20px;
     padding: 0 50% 5px 0;
@@ -28,6 +30,8 @@
     border-bottom: 2px solid #DDD;
 }
 .price-header2 {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     margin-bottom: 5px;
     padding: 0 20% 5px 0;
@@ -100,7 +104,8 @@
     position: relative;
     max-width: 70%;
     margin: 2% auto;
-    animation: zoom-in .3s ease forwards;
+    -webkit-animation: zoom-in .3s ease forwards;
+            animation: zoom-in .3s ease forwards;
 }
 #modal-img {
     max-width: inherit;
@@ -121,12 +126,12 @@
 }
 
 /* Jump Points */
-#textsimple::before,
-#textreal::before,
-#logo::before,
-#wallpaper::before,
-#wallconnectors::before,
-#frames::before {
+#textsimple:before,
+#textreal:before,
+#logo:before,
+#wallpaper:before,
+#wallconnectors:before,
+#frames:before {
     display: block; 
     content: " "; 
     margin-top: -65px; 
