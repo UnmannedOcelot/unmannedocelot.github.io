@@ -141,7 +141,7 @@ main {
 }
 
 /* Mobile */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 750px) {
     main {
         max-width: 100%;
     }
