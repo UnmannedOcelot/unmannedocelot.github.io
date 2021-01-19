@@ -25,19 +25,19 @@
     padding: 0 50% 5px 0;
     font-size: 1.4em;
     font-family: 'Raleway', sans-serif;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #DDD;
 }
 .price-header2 {
     width: max-content;
     margin-bottom: 5px;
     padding: 0 20% 5px 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #DDD;
 }
 .price-cost {
     width: 12%;
 }
 .prices-link {
-    color: #333;
+    color: rgb(177, 214, 233);
 }
 
 .price-exp {
@@ -45,6 +45,9 @@
     text-align: center;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.1em;
+}
+.price-exp a {
+    color: rgb(177, 214, 233);
 }
 
 .price-container {
@@ -66,7 +69,7 @@
 }
 .price-price-box {
     padding: 4px;
-    border: 1px solid #333;
+    border: 1px solid #DDD;
     border-bottom: 0;
 }
 .price-summary {
@@ -91,7 +94,7 @@
 
 .sum-title {
     font-family: 'Montserrat', sans-serif;
-    color: #333;
+    color: rgb(177, 214, 233);
 }
 
 .img {
