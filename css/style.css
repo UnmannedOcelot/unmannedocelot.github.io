@@ -9,7 +9,7 @@ body {
     height: 95.7vh;
     margin: 0;
     padding: 0;
-    background-color: #141414;
+    background-color: #1a1a1a;
 }
 main {
     min-height: 100%;
@@ -20,8 +20,8 @@ main {
     min-width: 35%;
     margin: auto;
     padding: 20px;
-    background-color:#111111;
-    box-shadow: 0 0 8px 10px #111111;
+    background-color:#161616;
+    box-shadow: 0 0 8px 10px #161616;
     color: white;
 }
 
