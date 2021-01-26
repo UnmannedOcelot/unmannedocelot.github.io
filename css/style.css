@@ -145,10 +145,10 @@ h1 {
 /* Mobile */
 @media only screen and (max-width: 750px) {
     main {
-        max-width: 100%;
+        min-width: 100%;
     }
     .nav-main {
-        max-width: 100%;
+        min-width: 100%;
     }
     .nav-contact {
         top: 55px;
