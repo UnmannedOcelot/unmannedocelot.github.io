@@ -146,10 +146,9 @@ h1 {
 @media only screen and (max-width: 750px) {
     main {
         max-width: 100%;
-        width: 100%;
     }
     .nav-main {
-        width: 100%;
+        max-width: 100%;
     }
     .nav-contact {
         top: 55px;
@@ -158,10 +157,9 @@ h1 {
 @media (typeof window.orientation !== 'undefined') {
     main {
         max-width: 100%;
-        width: 100%;
     }
     .nav-main {
-        width: 100%;
+        max-width: 100%;
     }
     .nav-contact {
         top: 55px;
