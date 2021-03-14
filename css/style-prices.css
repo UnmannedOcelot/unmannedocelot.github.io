@@ -57,12 +57,10 @@
 .item-container {
     margin-top: 25px;
     font-family: 'Barlow', sans-serif;
-    scroll-behavior: smooth;
 }
 .item {
     max-width: 95%;
     margin: 0 12.5% 75px 12.5%;
-    scroll-behavior: smooth;
 }
 .item img {
     width: 70%;
