@@ -63,6 +63,20 @@ header {
     background-color: rgb(62, 129, 206);
     color: white;
 }
+.nav-logo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: auto;
+    padding: 2px !important;
+    width: 50px;
+}
+.nav-logo-container:hover {
+    background-color: #00000000 !important;
+}
+.nav-logo {
+    width: 100%;
+}
 .nav-contact {
     position: fixed;
     top: 0;
